@@ -1,0 +1,8 @@
+*, html {
+    font-family: 'Inconsolata', monospace; 
+}
+
+#logo {
+    font-family: 'Staatliches', cursive;
+    font-size: 40px;
+}
