@@ -1,8 +1,29 @@
 *, html {
-    font-family: 'Inconsolata', monospace; 
+    font-family: 'Inconsolata', monospace !important; 
+    font-size: 20px;
 }
 
 #logo {
-    font-family: 'Staatliches', cursive;
+    font-family: 'Staatliches', cursive !important;
     font-size: 40px;
+    color: whitesmoke;
 }
+
+.container {
+    border: 2px solid black;
+    border-radius: 20px;
+    width: auto;
+}
+
+#searchBar {
+
+}
+
+#mostRecentReview {
+
+}
+
+.olderReviews {
+
+}
+

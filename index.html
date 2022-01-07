@@ -1,35 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Staatliches&display=swap" rel="stylesheet">
-    <title>Gamer Connect Reviews</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Gamer Connect Reviews 🖥️</title>
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
-        <a class="navbar-brand" href="#" id="logo">gamer connect reviews</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">SEARCH</button>
-          </form>
+    <nav class="navbar is-dark p-4" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a href="#" id="logo">gamer connect reviews 🖥️</a>
         </div>
+        <!-- <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start pl-3">
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        more
+                    </a>
 
-        
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item">
+                            about
+                        </a>
+                        </a>
+                        <a class="navbar-item">
+                            contact
+                        </a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item">
+                            report an issue
+                        </a>
+                    </div>
+                </div>
+            </div> -->
 
-        
-      </nav>    
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a class="button is-success">
+                        <strong>SIGN UP</strong>
+                    </a>
+                    <a class="button is-light">
+                        LOG IN
+                    </a>
+                </div>
+            </div>
+        </div>
+        </div>
+    </nav>
+    <main>
+        <div class="field has-addons has-addons-right m-5">
+            <p class="control">
+                <span class="select">
+                    <select>
+                        <option>SPECIFY BY</option>
+                        <option>genre</option>
+                        <option>multiplayer</option>
+                        <option>platform</option>
+                    </select>
+                </span>
+            </p>
+            <p class="control">
+                <input class="input" type="text" placeholder="">
+            </p>
+            <p class="control">
+                <a class="button is-success">
+                    SEARCH
+                </a>
+            </p>
+        </div>
+        <div class="rows is-centered p-3">
+            <div class="container is-fluid mb-3" id="mostRecentReview">
+                <h1><strong>most recent review</strong></h1>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis eaque, officiis, quam animi,
+                    quaerat
+                    ipsam voluptas nesciunt distinctio iste eos quo neque molestias! Doloribus, culpa placeat eligendi
+                    veritatis necessitatibus quasi!
+                    Consequuntur quo magnam modi cum hic quis ipsa, nobis minus ab velit nihil exercitationem expedita
+                    maiores eos earum. Fugit, eius sapiente. Eum recusandae dolorem soluta libero doloremque quos?
+                    Commodi,
+                    deleniti.
+                    Facere ea reiciendis assumenda soluta in minima tempore, accusamus magni explicabo earum porro!
+                    Accusantium voluptatum fuga fugit odit perferendis quidem, quia voluptate quod porro dolore, eius,
+                    obcaecati ad sequi sapiente!
+                    Minus incidunt error architecto ullam nihil quasi libero sed veritatis reprehenderit? Itaque eum
+                    fugit
+                    quam temporibus saepe velit illo quidem ratione omnis deleniti exercitationem sed molestias nemo,
+                    laudantium maiores suscipit.
+                    Ad aspernatur quisquam mollitia distinctio voluptas consequuntur fugit assumenda, dolore quam
+                    repudiandae aperiam nobis aut, voluptatum cumque deleniti architecto voluptatibus. Nihil laborum
+                    autem
+                    eveniet vel error distinctio maiores? Temporibus, doloremque!</p>
+            </div>
+            <div class="container is-fluid mb-3 olderReviews">
+                <h1><strong>older review</strong></h1>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis eaque, officiis, quam animi,
+                    quaerat
+                    ipsam voluptas nesciunt distinctio iste eos quo neque molestias! Doloribus, culpa placeat eligendi
+                    veritatis necessitatibus quasi!
+                    Consequuntur quo magnam modi cum hic quis ipsa, nobis minus ab velit nihil exercitationem expedita
+                    maiores eos earum. Fugit, eius sapiente. Eum recusandae dolorem soluta libero doloremque quos?
+                    Commodi,
+                    deleniti.
+                    Facere ea reiciendis assumenda soluta in minima tempore, accusamus magni explicabo earum porro!
+                    Accusantium voluptatum fuga fugit odit perferendis quidem, quia voluptate quod porro dolore, eius,
+                    obcaecati ad sequi sapiente!
+                    Minus incidunt error architecto ullam nihil quasi libero sed veritatis reprehenderit? Itaque eum
+                    fugit
+                    quam temporibus saepe velit illo quidem ratione omnis deleniti exercitationem sed molestias nemo,
+                    laudantium maiores suscipit.
+                    Ad aspernatur quisquam mollitia distinctio voluptas consequuntur fugit assumenda, dolore quam
+                    repudiandae aperiam nobis aut, voluptatum cumque deleniti architecto voluptatibus. Nihil laborum
+                    autem
+                    eveniet vel error distinctio maiores? Temporibus, doloremque!</p>
+            </div>
+            <div class="container is-fluid mb-3 olderReviews">
+                <h1><strong>older review</strong></h1>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis eaque, officiis, quam animi,
+                    quaerat
+                    ipsam voluptas nesciunt distinctio iste eos quo neque molestias! Doloribus, culpa placeat eligendi
+                    veritatis necessitatibus quasi!
+                    Consequuntur quo magnam modi cum hic quis ipsa, nobis minus ab velit nihil exercitationem expedita
+                    maiores eos earum. Fugit, eius sapiente. Eum recusandae dolorem soluta libero doloremque quos?
+                    Commodi,
+                    deleniti.
+                    Facere ea reiciendis assumenda soluta in minima tempore, accusamus magni explicabo earum porro!
+                    Accusantium voluptatum fuga fugit odit perferendis quidem, quia voluptate quod porro dolore, eius,
+                    obcaecati ad sequi sapiente!
+                    Minus incidunt error architecto ullam nihil quasi libero sed veritatis reprehenderit? Itaque eum
+                    fugit
+                    quam temporibus saepe velit illo quidem ratione omnis deleniti exercitationem sed molestias nemo,
+                    laudantium maiores suscipit.
+                    Ad aspernatur quisquam mollitia distinctio voluptas consequuntur fugit assumenda, dolore quam
+                    repudiandae aperiam nobis aut, voluptatum cumque deleniti architecto voluptatibus. Nihil laborum
+                    autem
+                    eveniet vel error distinctio maiores? Temporibus, doloremque!</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer mt-5 p-5">
+        <div class="content has-text-centered">
+            <p>
+                created by
+                <a href="https://github.com/gluupo" target="_blank">arianna banks</a>,
+                <a href="https://github.com/dcrlsn" target="_blank">dan carlson</a>
+                and
+                <a href="https://github.com/bigzeus2005" target="_blank">jesus rosa</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="./assets/js/script.js"></script>
 </body>
+
 </html>
