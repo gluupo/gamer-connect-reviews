@@ -1,8 +1,11 @@
 const router = require('express').Router()
 const controllers = require('../controllers')
-const apiRoutes = require('./api')
+const userRoutes = require('./user')
+const gameRoutes = require('./game')
 
-router.use('/api', apiRoutes);
+
+router.use('/users', userRoutes);
+router.use('/games', gameRoutes);
 
 router.get('*', (req, res) =>
   res.sendFile(path.join(__dirname, '../public/index.html'))
