@@ -10,10 +10,13 @@
 }
 
 .container {
-    border: 2px solid black;
+    border: 2px solid lightgrey;
     border-radius: 20px;
     flex: auto;
     margin: 1rem;
     padding: 10px;
 }
 
+.container:hover {
+    background-color: rgb(30, 201, 150);
+}
