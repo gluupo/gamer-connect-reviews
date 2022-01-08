@@ -44,6 +44,14 @@ Game.init(
         key: 'id',
       },
     },
+    review: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      references: {
+        model: 'review',
+        key: 'id',
+      },
+    },
   },
   {
     sequelize,
