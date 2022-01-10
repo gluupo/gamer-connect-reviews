@@ -20,7 +20,7 @@ const getAllGames = async (req, res) => {
         'Client-ID': process.env.CLIENT_ID,
         'Authorization': 'Bearer ' + process.env.AUTH,
       },
-      data: `search "${req.body}"; fields name,cover.image_id,platforms.name,release_dates.date,game_modes.name,summary;
+      data: `search "${req.body}"; fields name,cover.image_id,platforms.name,release_dates.date,game_modes,summary;
     limit 5;`
     })
     return res.json(response.data)
@@ -41,17 +41,9 @@ const getGameById = async (req, res) => {
           'Client-ID': process.env.CLIENT_ID,
           'Authorization': 'Bearer ' + process.env.AUTH,
         },
-        data: `fields name,cover.image_id,platforms.name,release_dates.date,game_modes.name,summary; where id = ${req.params.id};`
+        data: `fields name,cover.image_id,platforms.name,release_dates.date,game_modes,summary; where id = ${req.params.id};`
       })
-      const dbGameData = await Game.create({
-        id: response.data.id,
-        name: response.data.name,
-        cover_id: response.data.cover_id.image_id,
-        platforms: response.data.platforms.name,
-        release_date: response.release_dates.date,
-        game_modes: response.game_modes.name,
-        summary: response.data.summary
-      });
+      await createGame(response.data)
 
       return res.json(response.data)
     } else {
@@ -66,10 +58,14 @@ const getGameById = async (req, res) => {
 
 const createGame = async (req, res) => {
   try {
-    const dbGameData = await User.create({
-      username: req.body.username,
-      email: req.body.email,
-      password: req.body.password,
+    const dbGameData = await Game.create({
+      id: req.id,
+      name: req.name,
+      cover_id: req.cover_id.image_id,
+      platforms: req.platforms.name,
+      release_date: req.release_dates.date,
+      game_modes: req.game_modes,
+      summary: req.summary
     });
     res.status(200).json(dbGameData);
   } catch (err) {

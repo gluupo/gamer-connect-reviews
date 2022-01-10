@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Game extends Model {}
+class Game extends Model { }
 
 Game.init(
   {
@@ -12,7 +12,7 @@ Game.init(
     },
     name: {
       type: DataTypes.STRING,
-      allowNull: false,      
+      allowNull: false,
     },
     cover_id: {
       type: DataTypes.INTEGER,
@@ -33,7 +33,7 @@ Game.init(
       type: DataTypes.STRING,
       allowNull: true,
       validate: {
-        len: [1,1000],
+        len: [1, 1000],
       },
     },
     mode_id: {
@@ -41,14 +41,6 @@ Game.init(
       allowNull: true,
       references: {
         model: 'mode',
-        key: 'id',
-      },
-    },
-    review: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      references: {
-        model: 'review',
         key: 'id',
       },
     },

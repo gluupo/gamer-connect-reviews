@@ -29,7 +29,7 @@ const deleteUser = async () => {
 
 }
 
-const loginUser = async () => {
+const loginUser = async (req, res) => {
   try {
     const dbUserData = await User.findOne({
       where: {
@@ -66,7 +66,7 @@ const loginUser = async () => {
   }
 }
 
-const logoutUser = async () => {
+const logoutUser = async (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
