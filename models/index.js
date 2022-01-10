@@ -26,10 +26,6 @@ Game.belongsToMany(Review, {
   foreignKey: 'game_id'
 });
 
-User.hasMany(Review, {
-  foreignKey: 'game_id'
-});
-
 module.exports = {
   Game, 
   GameMode, 
