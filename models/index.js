@@ -31,12 +31,12 @@ User.hasMany(Review, {
 });
 
 module.exports = {
-  Game, 
-  GameMode, 
-  GamePlatform, 
-  GameReview, 
-  Mode, 
-  Platform, 
-  Review, 
+  Game,
+  GameMode,
+  GamePlatform,
+  GameReview,
+  Mode,
+  Platform,
+  Review,
   User
 };
