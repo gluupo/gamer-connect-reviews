@@ -1,37 +1,77 @@
 const axios = require('axios')
 require('dotenv').config();
+const { Game } = require('../../models')
+
+
+const dbCheck = (id) => {
+  Game.findOne({ where: { id: id }, attributes: ['id'] })
+    .then(token => token !== null)
+    .then(dbCheck => dbCheck);
+}
 
 
 const getAllGames = async (req, res) => {
-  const response = await axios({
-    url: "https://api.igdb.com/v4/search",
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Client-ID': process.env.CLIENT_ID,
-      'Authorization': 'Bearer ' + process.env.AUTH,
-    },
-    data: 'fields alternative_name,character,checksum,collection,company,description,game,name,platform,published_at,test_dummy,theme; search "Super Mario"; limit 50;'
-  })
-
-  return res.json(response.data)
+  try {
+    const response = await axios({
+      url: "https://api.igdb.com/v4/games",
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Client-ID': process.env.CLIENT_ID,
+        'Authorization': 'Bearer ' + process.env.AUTH,
+      },
+      data: `search "${req.body}"; fields name,cover.image_id,platforms.name,release_dates.date,game_modes,summary;
+    limit 5;`
+    })
+    return res.json(response.data)
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 }
+
 const getGameById = async (req, res) => {
-  const response = await axios({
-    url: "https://api.igdb.com/v4/games",
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Client-ID': process.env.CLIENT_ID,
-      'Authorization': 'Bearer ' + process.env.AUTH,
-    },
-    data: `fields name,cover.*,summary,platforms.*,game_modes.*; where id = ${req.params.id};`
-  })
+  try {
+    if (!dbCheck(req.params.id)) {
+      const response = await axios({
+        url: "https://api.igdb.com/v4/games",
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Client-ID': process.env.CLIENT_ID,
+          'Authorization': 'Bearer ' + process.env.AUTH,
+        },
+        data: `fields name,cover.image_id,platforms.name,release_dates.date,game_modes,summary; where id = ${req.params.id};`
+      })
+      await createGame(response.data)
 
-  return res.json(response.data)
+      return res.json(response.data)
+    } else {
+      Game.findOne({ where: { id: req.params.id } })
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 }
-const createGame = async () => {
 
+
+const createGame = async (req, res) => {
+  try {
+    const dbGameData = await Game.create({
+      id: req.id,
+      name: req.name,
+      cover_id: req.cover_id.image_id,
+      platforms: req.platforms.name,
+      release_date: req.release_dates.date,
+      game_modes: req.game_modes,
+      summary: req.summary
+    });
+    res.status(200).json(dbGameData);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 }
 const updateGame = async () => {
 
@@ -42,3 +82,5 @@ const deleteGame = async () => {
 
 
 module.exports = { getAllGames, getGameById, createGame, updateGame, deleteGame }
+
+// ,summary,platforms.abbreviation,game_modes.name,release_dates.date; sort release_dates.date desc;

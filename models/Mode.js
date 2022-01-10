@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Platform extends Model {}
+class Mode extends Model {}
 
-Platform.init(
+Mode.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,18 +11,18 @@ Platform.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    game_mode: {
       type: DataTypes.STRING,
-      allowNull: false,      
+      allowNull: false,
     },
   },
   {
     sequelize,
-    timestamps: false,
+    timeStamps: true,
     freezeTableName: true,
-    underscored: true,
-    modelName: 'platform'
-  }
+    underscore: true,
+    modelName: 'mode',
+  },
 );
 
-module.exports = Platform;
+module.exports = Mode;
