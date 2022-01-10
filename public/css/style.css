@@ -8,13 +8,13 @@
     font-family: 'Staatliches', cursive !important;
     font-size: 42px;
     color: whitesmoke;
+    text-decoration: none;
 }
 
 #infoWidget {
     flex: 0 auto;
-    margin: auto;
     background-color: pink;
-    padding: 50px;
+    padding: 10px;
     border-radius: 20px;
     display: inline-block;
 }
