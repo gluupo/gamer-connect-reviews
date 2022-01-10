@@ -16,15 +16,28 @@ Game.belongsToMany(Mode, {
   foreignKey: 'game_id'
 });
 
+Mode.belongsToMany(Game, {
+  through: GameMode,
+  foreignKey: 'mode_id'
+})
+
 Game.belongsToMany(Platform, {
   through: GamePlatform,
   foreignKey: 'game_id'
 });
 
-Game.belongsToMany(Review, {
-  through: GameReview,
+Platform.belongsToMany(Game, {
+  through: GamePlatform,
+  foreignKey: 'platform_id'
+})
+
+Game.hasMany(Review, {
   foreignKey: 'game_id'
 });
+
+Review.belongsTo(Game, {
+  foreignKey: 'game_id'
+})
 
 module.exports = {
   Game,

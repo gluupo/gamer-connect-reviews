@@ -15,11 +15,12 @@ Game.init(
       allowNull: false,
     },
     cover_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     platform_id: {
       type: DataTypes.INTEGER,
+      allowNull: true,
       references: {
         model: 'platform',
         key: 'id'

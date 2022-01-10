@@ -4,7 +4,7 @@ const { Game } = require('../../models')
 
 
 const dbCheck = (id) => {
-  Game.findOne({ where: { id: id }, attributes: ['id'] })
+  Game.findOne({ where: { id: id } })
     .then(token => token !== null)
     .then(dbCheck => dbCheck);
 }
@@ -41,9 +41,10 @@ const getGameById = async (req, res) => {
           'Client-ID': process.env.CLIENT_ID,
           'Authorization': 'Bearer ' + process.env.AUTH,
         },
-        data: `fields name,cover.image_id,platforms.name,release_dates.date,game_modes,summary; where id = ${req.params.id};`
+        data: `fields name,cover.image_id,platforms,release_dates.date,game_modes,summary; where id = ${req.params.id};`
       })
-      await createGame(response.data)
+      console.log(response.data)
+      await createGame(response.data[0])
 
       return res.json(response.data)
     } else {
@@ -57,22 +58,22 @@ const getGameById = async (req, res) => {
 
 
 const createGame = async (req, res) => {
+  console.log(req.cover.image_id)
   try {
     const dbGameData = await Game.create({
       id: req.id,
       name: req.name,
-      cover_id: req.cover_id.image_id,
-      platforms: req.platforms.name,
-      release_date: req.release_dates.date,
-      game_modes: req.game_modes,
+      cover_id: req.cover.image_id,
+      // platform_id: req.platforms,
+      release_date: req.release_dates[0].date,
+      // mode_id: req.game_modes,
       summary: req.summary
     });
-    res.status(200).json(dbGameData);
   } catch (err) {
     console.log(err);
-    res.status(500).json(err);
   }
 }
+
 const updateGame = async () => {
 
 }
