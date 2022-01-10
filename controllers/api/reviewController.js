@@ -8,16 +8,14 @@ const getReviewById = async () => {
 
 const createReview = async (req, res) => {
   try {
-    const dbUserData = await User.create({
+    const dbReviewData = await Review.create({
       username: req.body.username,
-      email: req.body.email,
-      password: req.body.password,
+      review: req.body.review,
     });
 
     req.session.save(() => {
       req.session.loggedIn = true;
-
-      res.status(200).json(dbUserData);
+      res.status(200).json(dbReviewData);
     });
   } catch (err) {
     console.log(err);
