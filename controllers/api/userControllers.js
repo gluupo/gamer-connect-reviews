@@ -4,7 +4,7 @@ const getAllUsers = async () => {
 const getUserById = async () => {
 
 }
-const createUser = async () => {
+const createUser = async (req, res) => {
   try {
     const dbUserData = await User.create({
       username: req.body.username,
