@@ -4,3 +4,7 @@ const Platform = require('./Platform');
 const Review = require('./Review');
 const User = require('./User');
 
+
+
+
+module.exports = { Game, Mode, Platform, Review, User };
