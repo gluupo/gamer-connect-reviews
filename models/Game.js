@@ -36,7 +36,7 @@ Game.init(
         len: [1,1000],
       },
     },
-    game_modes: {
+    mode_id: {
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
