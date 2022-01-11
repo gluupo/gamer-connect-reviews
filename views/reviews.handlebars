@@ -6,62 +6,16 @@
   <div class="container">
     {{#each reviews}}
     {{log this}}
-    <h1>{{review}}</h1>
-    <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover_id}}.jpg">
-    <p>By {{user.username}}
+    <h1>{{game.name}}</h1>
+    <a href="/game/{{game.id}}"><img
+        src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover_id}}.jpg"></a>
+    <p>
+    <h4>Review By:</h4><a href="/user/{{user.id}}">
+      <h3>{{user.username}}</h3>
+    </a>
+    <br>
+    {{review}}
     </p>
     {{/each}}
-  </div>
-  <div class="container">
-    <h1><strong>OLDER REVIEW</strong></h1>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis eaque, officiis, quam animi,
-      quaerat
-      ipsam voluptas nesciunt distinctio iste eos quo neque molestias! Doloribus, culpa placeat
-      eligendi
-      veritatis necessitatibus quasi!
-      Consequuntur quo magnam modi cum hic quis ipsa, nobis minus ab velit nihil exercitationem
-      expedita
-      maiores eos earum. Fugit, eius sapiente. Eum recusandae dolorem soluta libero doloremque quos?
-      Commodi,
-      deleniti.
-      Facere ea reiciendis assumenda soluta in minima tempore, accusamus magni explicabo earum porro!
-      Accusantium voluptatum fuga fugit odit perferendis quidem, quia voluptate quod porro dolore,
-      eius,
-      obcaecati ad sequi sapiente!
-      Minus incidunt error architecto ullam nihil quasi libero sed veritatis reprehenderit? Itaque eum
-      fugit
-      quam temporibus saepe velit illo quidem ratione omnis deleniti exercitationem sed molestias
-      nemo,
-      laudantium maiores suscipit.
-      Ad aspernatur quisquam mollitia distinctio voluptas consequuntur fugit assumenda, dolore quam
-      repudiandae aperiam nobis aut, voluptatum cumque deleniti architecto voluptatibus. Nihil laborum
-      autem
-      eveniet vel error distinctio maiores? Temporibus, doloremque!</p>
-  </div>
-  <div class="container">
-    <h1><strong>OLDER REVIEW</strong></h1>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis eaque, officiis, quam animi,
-      quaerat
-      ipsam voluptas nesciunt distinctio iste eos quo neque molestias! Doloribus, culpa placeat
-      eligendi
-      veritatis necessitatibus quasi!
-      Consequuntur quo magnam modi cum hic quis ipsa, nobis minus ab velit nihil exercitationem
-      expedita
-      maiores eos earum. Fugit, eius sapiente. Eum recusandae dolorem soluta libero doloremque quos?
-      Commodi,
-      deleniti.
-      Facere ea reiciendis assumenda soluta in minima tempore, accusamus magni explicabo earum porro!
-      Accusantium voluptatum fuga fugit odit perferendis quidem, quia voluptate quod porro dolore,
-      eius,
-      obcaecati ad sequi sapiente!
-      Minus incidunt error architecto ullam nihil quasi libero sed veritatis reprehenderit? Itaque eum
-      fugit
-      quam temporibus saepe velit illo quidem ratione omnis deleniti exercitationem sed molestias
-      nemo,
-      laudantium maiores suscipit.
-      Ad aspernatur quisquam mollitia distinctio voluptas consequuntur fugit assumenda, dolore quam
-      repudiandae aperiam nobis aut, voluptatum cumque deleniti architecto voluptatibus. Nihil laborum
-      autem
-      eveniet vel error distinctio maiores? Temporibus, doloremque!</p>
   </div>
 </div>

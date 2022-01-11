@@ -21,11 +21,8 @@ Game.init(
       type: DataTypes.INTEGER
     },
     summary: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(10000),
       allowNull: true,
-      validate: {
-        len: [1, 1000],
-      },
     },
   },
   {
