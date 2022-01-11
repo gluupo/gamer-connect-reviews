@@ -18,14 +18,6 @@ Game.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    platform_id: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      references: {
-        model: 'platform',
-        key: 'id'
-      },
-    },
     release_date: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -36,15 +28,7 @@ Game.init(
       validate: {
         len: [1, 1000],
       },
-    },
-    mode_id: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      references: {
-        model: 'mode',
-        key: 'id',
-      },
-    },
+    },    
   },
   {
     sequelize,
