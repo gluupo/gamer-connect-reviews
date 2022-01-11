@@ -8,6 +8,7 @@ const getUserById = async () => {
 }
 const createUser = async (req, res) => {
   try {
+    console.log(req.body)
     const dbUserData = await User.create({
       username: req.body.username,
       email: req.body.email,
