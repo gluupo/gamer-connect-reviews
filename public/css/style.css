@@ -55,6 +55,10 @@ img {
     padding-left: 30px;
 }
 
+#logo:hover {
+    color: rgb(119, 85, 151);
+}
+
 #infoWidget {
     flex: 0 auto;
     background-color:rgb(119, 85, 151);
