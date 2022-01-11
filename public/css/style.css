@@ -9,11 +9,16 @@ footer a {
     color: rgb(119, 85, 151);
 }
 
+body {
+    background-color: rgb(85, 85, 85);
+}
+
 #logo {
     font-family: 'Staatliches', cursive !important;
     font-size: 42px;
     color: whitesmoke;
-    text-decoration: none;
+    text-decoration: underline;
+    text-decoration-color: rgb(119, 85, 151);
     padding-right: 30px;
     padding-left: 30px;
 }
@@ -25,7 +30,7 @@ footer a {
 
 #infoWidget {
     flex: 0 auto;
-    background-color: pink;
+    background-color:rgb(119, 85, 151);
     padding: 10px;
     border-radius: 10px;
     display: inline-block;
@@ -52,5 +57,5 @@ footer a {
 
 .navbar-nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
   }
