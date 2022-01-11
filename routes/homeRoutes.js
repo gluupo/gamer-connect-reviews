@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Review, Game } = require('../models');
 const withAuth = require('../utils/auth');
 const axios = require('axios')
-const { apiRequestForGames, getGameById } = require('../controllers/api/gameControllers.js')
+const { apiRequestForGames, getGameById, apiRequestForGamebyID } = require('../controllers/api/gameControllers.js')
 
 router.get('/', async (req, res) => {
   try {
@@ -43,38 +43,18 @@ router.get('/game/search/', async (req, res) => {
     console.log(err);
     res.status(500).json(err);
   }
-})
+});
 
 router.get('/game/id/:id', async (req, res) => {
   try {
-    const gameData = await Game.findByPk(req.params.id, {
-      include: [
-        {
-          model: Review,
-          attributes: [
-            'id',
-            'review',
-          ],
-          include: [
-            {
-              model: User,
-              attributes: [
-                'id',
-                'username'
-              ]
-            }
-          ],
-          order: [['created_at', 'DESC']],
-          limit: 5
-        }
-      ]
-    })
-    const game = gameData.get({ plain: true });
-    res.render('game', { loggedIn: req.session.loggedIn, user_id: req.session.id, game })
+    console.log(req.params.id)
+    const game = await apiRequestForGamebyID(req.params.id)
+    res.render('game', { game, loggedIn: req.session.loggedIn, user_id: req.session.id })
   } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
-})
+});
 
 router.get('/user/:id', async (req, res) => {
   try {
