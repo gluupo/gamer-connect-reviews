@@ -1,11 +1,12 @@
 const router = require('express').Router()
-const controllers = require('../controllers')
+const { loginUser, logoutUser } = require('../controllers')
+const withAuth = require('../utils/auth')
 const apiRoutes = require('./api')
 
 router.use('/api', apiRoutes);
+router.post('/login', withAuth, loginUser)
+router.post('/logout', withAuth, logoutUser)
 
-router.get('*', (req, res) =>
-  res.sendFile(path.join(__dirname, '../public/index.html'))
-);
+router.get('*', (req, res) => res.render('reviews', {}));
 
 module.exports = router
