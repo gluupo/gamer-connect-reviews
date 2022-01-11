@@ -1,15 +1,19 @@
 {{> searchbar}}
 
-<div class="container">
-  {{log game.reviews}}
-  <a href="/game/{{game.id}}"><img src="
+<div class="row">
+  <div class="w-50 mx-auto">
+    <div class="container" id="reviewCard">
+      {{log game.reviews}}
+      <a href="/game/{{game.id}}"><img src="
     https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover_id}}.jpg"></a>
-  {{#each game.reviews}}
-  <div class="card">
-    <a href="/user/{{user.id}}">
-      <h3>{{user.username}}</h3>
-    </a>
-    <p>{{review}}</p>
+      {{#each game.reviews}}
+      <div class="card">
+        <a href="/user/{{user.id}}">
+          <h3>{{user.username}}</h3>
+        </a>
+        <p>{{review}}</p>
+      </div>
+      {{/each}}
+    </div>
   </div>
-  {{/each}}
 </div>
