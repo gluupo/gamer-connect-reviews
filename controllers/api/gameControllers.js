@@ -49,6 +49,7 @@ const getGameById = async (req, res) => {
       return res.json(response.data)
     } else {
       Game.findOne({ where: { id: req.params.id } })
+      return res.json()
     }
   } catch (err) {
     console.log(err);
