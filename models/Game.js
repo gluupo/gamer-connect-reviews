@@ -16,11 +16,9 @@ Game.init(
     },
     cover_id: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
     release_date: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
+      type: DataTypes.INTEGER
     },
     summary: {
       type: DataTypes.STRING,
@@ -28,7 +26,7 @@ Game.init(
       validate: {
         len: [1, 1000],
       },
-    },    
+    },
   },
   {
     sequelize,
