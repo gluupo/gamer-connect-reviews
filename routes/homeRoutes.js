@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { User, Review, Game } = require('../models');
 const withAuth = require('../utils/auth');
+const axios = require('axios')
+const { apiRequestForGames } = require('../controllers/api/gameControllers.js')
 
 // router.get('/', withAuth, async (req, res) => {
 //   try {
@@ -59,7 +61,18 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.get('/game/:id', async (req, res) => {
+router.get('/game/search/', async (req, res) => {
+  console.log(req.query.q)
+  try {
+    const games = await apiRequestForGames(req.query.q)
+    res.render('search', { games })
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+})
+
+router.get('/game/id/:id', async (req, res) => {
   try {
     const gameData = await Game.findByPk(req.params.id, {
       include: [
@@ -89,7 +102,6 @@ router.get('/game/:id', async (req, res) => {
     res.status(500).json(err);
   }
 })
-
 
 router.get('/user/:id', async (req, res) => {
   try {
