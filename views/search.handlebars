@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container" id="gameSearchContainer">
   {{log this}}
   {{#each games}}
   <a href="/game/id/{{id}}">
-    <div class="card">
+    <div class="card" id="gameSearchCard">
       <h3>{{name}}</h3>
       <img src="https://images.igdb.com/igdb/image/upload/t_cover_med/{{cover.image_id}}.jpg">
       <p>{{summary}}</p>
