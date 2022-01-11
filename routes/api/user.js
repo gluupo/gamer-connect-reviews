@@ -8,8 +8,8 @@ router.get('/:id', getUserById);
 router.post('/', createUser);
 router.put('/:id', withAuth, updateUser);
 router.delete('/:id', withAuth, deleteUser);
-router.post('/login', withAuth, loginUser);
-router.post('/logout', withAuth, logoutUser);
+router.post('/login', loginUser);
+router.post('/logout', logoutUser);
 
 
 module.exports = router

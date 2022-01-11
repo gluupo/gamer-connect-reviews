@@ -52,7 +52,8 @@ router.get('/', async (req, res) => {
       limit: 5
     })
     const reviews = reviewData.map((project) => project.get({ plain: true }));
-    res.render('reviews', { reviews })
+    console.log(req.session)
+    res.render('reviews', { reviews, loggedIn: req.session.loggedIn, user_id: req.session.id })
   } catch (err) {
     res.status(500).json(err);
   }
@@ -83,7 +84,7 @@ router.get('/game/:id', async (req, res) => {
       ]
     })
     const game = gameData.get({ plain: true });
-    res.render('game', { game })
+    res.render('game', { loggedIn: req.session.loggedIn, user_id: req.session.id, game })
   } catch (err) {
     res.status(500).json(err);
   }

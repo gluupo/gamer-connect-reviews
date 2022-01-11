@@ -11,6 +11,16 @@
     </ul>
     <div class="navbar-nav mb-0">
       <div class="dropdown">
+        {{#if loggedIn}}
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          Profile
+        </button>
+        <div class="dropdown-menu">
+          <button type="submit" class="btn btn-primary" id="logout">logout</button>
+        </div>
+        <script src="/js/logout.js"></script>
+        {{else}}
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
           data-bs-toggle="dropdown" aria-expanded="false">
           LOG IN
@@ -29,6 +39,8 @@
           </form>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="/signup">new around here? sign up!</a>
+          <script src="/js/login.js"></script>
+          {{/if}}
         </div>
       </div>
     </div>
