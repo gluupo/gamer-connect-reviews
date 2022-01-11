@@ -4,10 +4,9 @@ const seedGame = require('./game-seed');
 const seedPlatform = require('./platform-seed');
 const seedMode = require('./mode-seed');
 const seedReview = require('./review-seed');
-const sequelize = require('sequelize');
 
 const seedAll = async () => {
-  await sequelize.sync({ force: true});
+  await sequelize.sync({ force: true });
 
   await seedUser();
 
