@@ -1,6 +1,6 @@
 const axios = require('axios')
 require('dotenv').config();
-const { Game } = require('../../models')
+const { Game, Review, User } = require('../../models')
 
 const apiRequestForGames = async (name) => {
   const response = await axios({
@@ -38,9 +38,98 @@ const getAllGames = async (req, res) => {
   }
 }
 
+const apiRequestForGamebyID = async (data) => {
+  try {
+    console.log(data)
+    let gameData = await Game.findByPk(data, {
+      include: [
+        {
+          model: Review,
+          attributes: [
+            'id',
+            'review',
+          ],
+          include: [
+            {
+              model: User,
+              attributes: [
+                'id',
+                'username'
+              ]
+            }
+          ],
+          order: [['created_at', 'DESC']],
+          limit: 5
+        }
+      ]
+    })
+    if (!gameData) {
+      const response = await axios({
+        url: "https://api.igdb.com/v4/games",
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Client-ID': process.env.CLIENT_ID,
+          'Authorization': 'Bearer ' + process.env.AUTH,
+        },
+        data: `fields name,cover.image_id,platforms,release_dates.date,game_modes,summary; where id = ${data};`
+      })
+      console.log(response.data)
+      await createGame(response.data[0])
+
+      gameData = await Game.findByPk(data, {
+        include: [
+          {
+            model: Review,
+            attributes: [
+              'id',
+              'review',
+            ],
+            include: [
+              {
+                model: User,
+                attributes: [
+                  'id',
+                  'username'
+                ]
+              }
+            ],
+            order: [['created_at', 'DESC']],
+            limit: 5
+          }
+        ]
+      })
+    }
+    return gameData.get({ plain: true })
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 const getGameById = async (req, res) => {
   try {
-    let gameData = await Game.findByPk(req.params.id, {})
+    let gameData = await Game.findByPk(req.params.id, {
+      include: [
+        {
+          model: Review,
+          attributes: [
+            'id',
+            'review',
+          ],
+          include: [
+            {
+              model: User,
+              attributes: [
+                'id',
+                'username'
+              ]
+            }
+          ],
+          order: [['created_at', 'DESC']],
+          limit: 5
+        }
+      ]
+    })
     if (!gameData) {
       const response = await axios({
         url: "https://api.igdb.com/v4/games",
@@ -90,6 +179,6 @@ const deleteGame = async () => {
 }
 
 
-module.exports = { getAllGames, getGameById, createGame, updateGame, deleteGame, apiRequestForGames }
+module.exports = { getAllGames, getGameById, createGame, updateGame, deleteGame, apiRequestForGames, apiRequestForGamebyID }
 
 // ,summary,platforms.abbreviation,game_modes.name,release_dates.date; sort release_dates.date desc;

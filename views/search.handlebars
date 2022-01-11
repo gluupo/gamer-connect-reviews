@@ -1,8 +1,12 @@
 <div class="container">
   {{log this}}
   {{#each games}}
-  <div class="card">
-    <img src="">
-  </div>
+  <a href="/game/id/{{id}}">
+    <div class="card">
+      <h3>{{name}}</h3>
+      <img src="https://images.igdb.com/igdb/image/upload/t_cover_med/{{cover.image_id}}.jpg">
+      <p>{{summary}}</p>
+    </div>
+  </a>
   {{/each}}
 </div>

@@ -2,34 +2,7 @@ const router = require('express').Router();
 const { User, Review, Game } = require('../models');
 const withAuth = require('../utils/auth');
 const axios = require('axios')
-const { apiRequestForGames } = require('../controllers/api/gameControllers.js')
-
-// router.get('/', withAuth, async (req, res) => {
-//   try {
-//     const userData = await User.findAll({
-//       attributes: { exclude: ['password'] },
-//       order: [['name', 'ASC']],
-//     });
-
-//     const users = userData.map((project) => project.get({ plain: true }));
-
-//     res.render('homepage', {
-//       users,
-//       logged_in: req.session.logged_in,
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
-// router.get('/login', (req, res) => {
-//   if (req.session.logged_in) {
-//     res.redirect('/');
-//     return;
-//   }
-
-//   res.render('login');
-// });
+const { apiRequestForGames, getGameById, apiRequestForGamebyID } = require('../controllers/api/gameControllers.js')
 
 router.get('/', async (req, res) => {
   try {
@@ -70,38 +43,18 @@ router.get('/game/search/', async (req, res) => {
     console.log(err);
     res.status(500).json(err);
   }
-})
+});
 
 router.get('/game/id/:id', async (req, res) => {
   try {
-    const gameData = await Game.findByPk(req.params.id, {
-      include: [
-        {
-          model: Review,
-          attributes: [
-            'id',
-            'review',
-          ],
-          include: [
-            {
-              model: User,
-              attributes: [
-                'id',
-                'username'
-              ]
-            }
-          ],
-          order: [['created_at', 'DESC']],
-          limit: 5
-        }
-      ]
-    })
-    const game = gameData.get({ plain: true });
-    res.render('game', { loggedIn: req.session.loggedIn, user_id: req.session.id, game })
+    console.log(req.params.id)
+    const game = await apiRequestForGamebyID(req.params.id)
+    res.render('game', { game, loggedIn: req.session.loggedIn, user_id: req.session.id })
   } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
-})
+});
 
 router.get('/user/:id', async (req, res) => {
   try {
