@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Review } = require('../models');
+const { User, Review, Game } = require('../models');
 const withAuth = require('../utils/auth');
 
 // router.get('/', withAuth, async (req, res) => {
@@ -32,6 +32,22 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
     const reviewData = await Review.findAll({
+      include: [
+        {
+          model: User,
+          attributes: [
+            'id',
+            'username'
+          ]
+        }, {
+          model: Game,
+          attributes: [
+            'id',
+            'cover_id',
+            'name'
+          ]
+        }
+      ]
       // order: [['createdAt', DESC]]
     })
     const reviews = reviewData.map((project) => project.get({ plain: true }));
