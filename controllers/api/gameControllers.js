@@ -2,14 +2,6 @@ const axios = require('axios')
 require('dotenv').config();
 const { Game } = require('../../models')
 
-
-const dbCheck = (id) => {
-  Game.findOne({ where: { id: id } })
-    .then(token => token !== null)
-    .then(dbCheck => !!dbCheck);
-}
-
-
 const getAllGames = async (req, res) => {
   try {
     const response = await axios({
@@ -32,7 +24,7 @@ const getAllGames = async (req, res) => {
 
 const getGameById = async (req, res) => {
   try {
-    const gameData = await Game.findByPk(req.params.id, {})
+    let gameData = await Game.findByPk(req.params.id, {})
     if (!gameData) {
       const response = await axios({
         url: "https://api.igdb.com/v4/games",
@@ -47,7 +39,7 @@ const getGameById = async (req, res) => {
       console.log(response.data)
       await createGame(response.data[0])
 
-      return res.json(response.data)
+      gameData = await Game.findByPk(req.params.id, {})
     }
     return res.json(gameData)
   }
