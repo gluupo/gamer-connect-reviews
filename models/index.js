@@ -2,6 +2,7 @@ const Game = require('./Game');
 const GameMode = require('./GameMode');
 const GamePlatform = require('./GamePlatform');
 const GameReview = require('./GameReview');
+const UserReview = require('./GameReview');
 const Mode = require('./Mode');
 const Platform = require('./Platform');
 const Review = require('./Review');
@@ -47,5 +48,6 @@ module.exports = {
   Mode,
   Platform,
   Review,
-  User
+  User,
+  UserReview
 };
