@@ -1,7 +1,15 @@
 {{> searchbar}}
 
 <div class="container">
-  {{log this}}
+  {{log game.reviews}}
   <a href="/game/{{game.id}}"><img src="
     https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover_id}}.jpg"></a>
+  {{#each game.reviews}}
+  <div class="card">
+    <h3>{{user.username}}</h3>
+    <p>{{review}}</p>
+  </div>
+  {{/each}}
+
+
 </div>

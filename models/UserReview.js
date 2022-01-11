@@ -32,7 +32,7 @@ UserReview.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'game_review',
+    modelName: 'user_review',
   }
 );
 

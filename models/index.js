@@ -40,6 +40,10 @@ Review.belongsTo(Game, {
   foreignKey: 'game_id'
 })
 
+User.hasMany(Review, {
+  foreignKey: 'user_id'
+})
+
 module.exports = {
   Game,
   GameMode,
