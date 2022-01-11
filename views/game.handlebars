@@ -6,6 +6,11 @@
       {{log game.reviews}}
       <a href="/game/{{game.id}}"><img src="
     https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover_id}}.jpg"></a>
+      <div>
+        {{game.summary}}
+        <br>
+        {{game.release_date}}
+      </div>
       {{#each game.reviews}}
       <div class="card">
         <a href="/user/{{user.id}}">
@@ -14,6 +19,5 @@
         <p>{{review}}</p>
       </div>
       {{/each}}
+
     </div>
-  </div>
-</div>

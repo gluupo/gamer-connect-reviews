@@ -2,7 +2,7 @@
   <div class="container-fluid mx-auto">
     <div class="navbar-nav" id="navbarSupportedContent">
       <button class="btn btn-secondary">
-        <a href="#" id="homeButton">home</a>
+        <a href="/" id="homeButton">home</a>
     </div>
     <ul class="navbar-nav">
       <a href="/" id="logo">
@@ -16,32 +16,23 @@
           LOG IN
         </button>
         <div class="dropdown-menu">
-          <form class="px-3 py-3">
+          <form class="px-3 py-3 login-form">
             <div class="mb-3">
               <label for="exampleDropdownFormEmail1" class="form-label">email address</label>
-              <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+              <input type="email" class="form-control" id="email-login" placeholder="email@example.com">
             </div>
             <div class="mb-3">
               <label for="exampleDropdownFormPassword1" class="form-label">password</label>
-              <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="password">
-            </div>
-            <div class="mb-3">
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                <label class="form-check-label" for="dropdownCheck">
-                  remember me
-                </label>
-              </div>
+              <input type="password" class="form-control" id="password-login" placeholder="password">
             </div>
             <button type="submit" class="btn btn-primary">sign in</button>
           </form>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">new around here? sign up!</a>
-          <a class="dropdown-item" href="#">forgot password?</a>
+          <a class="dropdown-item" href="/signup">new around here? sign up!</a>
         </div>
       </div>
     </div>
-
-  </div>
   </div>
 </nav>
+{{!--
+<script src="/js/login.js"></script> --}}
