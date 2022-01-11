@@ -1,8 +1,6 @@
-{{> searchbar}}
-
-<div class="row">
-  <div class="w-50 mx-auto">
-    <div class="container" id="reviewCard">
+<div class="row w-100">
+  <div class="mx-auto my-auto" id="gameReviewCard">
+    <div class="container p-3">
       {{log game.reviews}}
       <a href="/game/{{game.id}}"><img src="
     https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover_id}}.jpg"></a>
@@ -19,5 +17,6 @@
         <p>{{review}}</p>
       </div>
       {{/each}}
-
     </div>
+  </div>
+</div>

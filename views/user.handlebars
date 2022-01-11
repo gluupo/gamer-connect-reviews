@@ -1,14 +1,18 @@
-<div class="container">
-  {{log user}}
-  {{log user.reviews}}
-  {{log user.reviews.[0].game}}
-  <h1>{{user.username}}</h1>
-  {{#each user.reviews}}
-  <div class="card">
-    <a href="/game/{{game.id}}"><img src="
+<div class="row w-100">
+  <div class="mx-auto my-auto" id="user">
+    <div class="container">
+      {{log user}}
+      {{log user.reviews}}
+      {{log user.reviews.[0].game}}
+      <h1>{{user.username}}</h1>
+      {{#each user.reviews}}
+      <div class="card">
+        <a href="/game/{{game.id}}"><img src="
     https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover_id}}.jpg"></a>
-    <h2>{{game.name}}</h2>
-    <p>{{review}}</p>
+        <h2>{{game.name}}</h2>
+        <p>{{review}}</p>
+      </div>
+      {{/each}}
+    </div>
   </div>
-  {{/each}}
 </div>
