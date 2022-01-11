@@ -99,20 +99,26 @@ router.get('/user/:id', async (req, res) => {
           attributes: [
             'id',
             'review',
-          ]
-          //     include: [
-          //       {
-          //         model: Game,
-          //         attributes: [
-          //           'id',
-          //           'name'
-          //         ]
-          //       }
-          //     ],
-          //     order: [['created_at', 'DESC']],
-          //     limit: 5
-        }
+          ],
+          include: [
+            {
+              model: Game,
+              attributes: [
+                'id',
+                'name',
+                'cover_id'
+              ]
+            }
+          ],
+          order: [['created_at', 'DESC']],
+          limit: 5
+        },
+      ],
+      attributes: [
+        'id',
+        'username'
       ]
+
     })
     const user = userData.get({ plain: true });
     res.render('user', { user })
