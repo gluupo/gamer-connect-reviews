@@ -1,3 +1,5 @@
+{{> searchbar}}
+
 <div class="container">
   {{log game.reviews}}
   <a href="/game/{{game.id}}"><img src="
@@ -9,7 +11,9 @@
   </div>
   {{#each game.reviews}}
   <div class="card">
-    <h3>{{user.username}}</h3>
+    <a href="/user/{{user.id}}">
+      <h3>{{user.username}}</h3>
+    </a>
     <p>{{review}}</p>
   </div>
   {{/each}}

@@ -4,16 +4,33 @@
     color: #333;
 }
 
+footer a {
+    text-decoration: none;
+    color: rgb(119, 85, 151);
+}
+
+body {
+    background-color: rgb(85, 85, 85);
+}
+
 #logo {
     font-family: 'Staatliches', cursive !important;
     font-size: 42px;
+    color: whitesmoke;
+    text-decoration: underline;
+    text-decoration-color: rgb(119, 85, 151);
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+#homeButton {
     color: whitesmoke;
     text-decoration: none;
 }
 
 #infoWidget {
     flex: 0 auto;
-    background-color: pink;
+    background-color:rgb(119, 85, 151);
     padding: 10px;
     border-radius: 10px;
     display: inline-block;
@@ -22,7 +39,7 @@
 .container {
     border-bottom: 1px solid lightgrey;
     border-right: 1px solid lightgrey;
-    border-radius: 10px;
+    border-radius: 5px;
     flex: auto;
     flex-wrap: wrap;
     margin: 1rem;
@@ -34,4 +51,11 @@
 
 .container:hover {
     background-color: rgb(231, 231, 231);
+    transform: scale(99%);
+    transition: all 300ms ease-in-out;
 }
+
+.navbar-nav {
+    display: flex;
+    justify-content: space-around;
+  }

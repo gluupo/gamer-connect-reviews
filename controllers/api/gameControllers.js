@@ -2,14 +2,6 @@ const axios = require('axios')
 require('dotenv').config();
 const { Game } = require('../../models')
 
-
-const dbCheck = (id) => {
-  Game.findOne({ where: { id: id } })
-    .then(token => token !== null)
-    .then(dbCheck => dbCheck);
-}
-
-
 const getAllGames = async (req, res) => {
   try {
     const response = await axios({
@@ -20,7 +12,7 @@ const getAllGames = async (req, res) => {
         'Client-ID': process.env.CLIENT_ID,
         'Authorization': 'Bearer ' + process.env.AUTH,
       },
-      data: `search "${req.body}"; fields name,cover.image_id,platforms.name,release_dates.date,game_modes,summary;
+      data: `search "zelda"; fields name,cover.image_id,platforms.name,release_dates.date,game_modes,summary;
     limit 5;`
     })
     return res.json(response.data)
@@ -32,7 +24,8 @@ const getAllGames = async (req, res) => {
 
 const getGameById = async (req, res) => {
   try {
-    if (!dbCheck(req.params.id)) {
+    let gameData = await Game.findByPk(req.params.id, {})
+    if (!gameData) {
       const response = await axios({
         url: "https://api.igdb.com/v4/games",
         method: 'POST',
@@ -46,12 +39,11 @@ const getGameById = async (req, res) => {
       console.log(response.data)
       await createGame(response.data[0])
 
-      return res.json(response.data)
-    } else {
-      Game.findOne({ where: { id: req.params.id } })
-      return res.json()
+      gameData = await Game.findByPk(req.params.id, {})
     }
-  } catch (err) {
+    return res.json(gameData)
+  }
+  catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
@@ -65,9 +57,9 @@ const createGame = async (req, res) => {
       id: req.id,
       name: req.name,
       cover_id: req.cover.image_id,
-      // platform_id: req.platforms,
+      platform_id: req.platforms,
       release_date: req.release_dates[0].date,
-      // mode_id: req.game_modes,
+      mode_id: req.game_modes,
       summary: req.summary
     });
   } catch (err) {
