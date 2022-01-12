@@ -36,6 +36,7 @@ const apiRequestForGamebyID = async (data) => {
           attributes: [
             'id',
             'review',
+            'rating'
           ],
           include: [
             {
@@ -103,6 +104,7 @@ const getGameById = async (req, res) => {
           attributes: [
             'id',
             'review',
+            'rating'
           ],
           include: [
             {

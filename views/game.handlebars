@@ -37,10 +37,12 @@
       </div>
       {{/if}}
       {{#each game.reviews}}
+      {{log this}}
       <div class="card" id="userReviewCard">
         <a href="/user/{{user.id}}">
           <h3>{{user.username}}</h3>
         </a>
+        <p>{{rating}}/5</p>
         <p>{{review}}</p>
       </div>
       {{/each}}

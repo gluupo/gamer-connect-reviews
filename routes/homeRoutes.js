@@ -65,6 +65,7 @@ router.get('/user/:id', async (req, res) => {
           attributes: [
             'id',
             'review',
+            'rating'
           ],
           include: [
             {
