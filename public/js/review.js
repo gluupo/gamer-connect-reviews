@@ -1,0 +1,1 @@
+const rating = document.querySelector('input[name="rate"]:checked').value
