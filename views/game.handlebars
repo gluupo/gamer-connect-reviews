@@ -2,7 +2,8 @@
   <div class="mx-auto my-auto">
     <div class="container" id="gameReviewCard">
       <div class="card mb-2">
-        {{log this}}
+        {{log user_id}}
+        {{log game.id}}
         <a href="/game/id/{{game.id}}"><img src="
     https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover_id}}.jpg"></a>
         <div>
@@ -27,9 +28,11 @@
             <input type="radio" id="star1" name="rate" value="1" />
             <label for="star1" title="text">1 star</label>
           </div>
-          <textarea class="form-control mb-3" rows="5" id="comment" name="text" placeholder="Write your Review here"
-            maxlength="500" id="review-text"></textarea>
+          <textarea class="form-control mb-3" rows="5" id="review-input-text" name="text"
+            placeholder="Write your Review here" maxlength="500"></textarea>
           <button type="submit" class="btn btn-primary">Submit</button>
+          <input type="hidden" id="user_id" name="user_id" value="{{user_id}}">
+          <input type="hidden" id="game_id" name="game_id" value="{{game.id}}">
         </form>
       </div>
       {{/if}}

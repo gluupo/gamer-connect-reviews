@@ -28,7 +28,7 @@ router.get('/', async (req, res) => {
     })
     const reviews = reviewData.map((project) => project.get({ plain: true }));
     console.log(req.session)
-    res.render('reviews', { reviews, loggedIn: req.session.loggedIn, user_id: req.session.id })
+    res.render('reviews', { reviews, loggedIn: req.session.loggedIn, user_id: req.session.user_id })
   } catch (err) {
     res.status(500).json(err);
   }
@@ -49,7 +49,7 @@ router.get('/game/id/:id', async (req, res) => {
   try {
     console.log(req.params.id)
     const game = await apiRequestForGamebyID(req.params.id)
-    res.render('game', { game, loggedIn: req.session.loggedIn, user_id: req.session.id })
+    res.render('game', { game, loggedIn: req.session.loggedIn, user_id: req.session.user_id })
   } catch (err) {
     console.log(err)
     res.status(500).json(err);

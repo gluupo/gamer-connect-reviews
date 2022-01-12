@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Review extends Model {}
+class Review extends Model { }
 
 Review.init(
   {
@@ -15,8 +15,12 @@ Review.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1,500],
-      },            
+        len: [1, 500],
+      },
+    },
+    rating: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
     },
     user_id: {
       type: DataTypes.INTEGER,

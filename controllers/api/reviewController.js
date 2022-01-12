@@ -1,3 +1,5 @@
+const { Review } = require('../../models')
+
 const getAllReviews = async () => {
 
 }
@@ -8,8 +10,11 @@ const getReviewById = async () => {
 
 const createReview = async (req, res) => {
   try {
+    console.log(req.body)
     const dbReviewData = await Review.create({
-      username: req.body.username,
+      user_id: req.body.user_id,
+      game_id: req.body.game_id,
+      rating: req.body.rating,
       review: req.body.review,
     });
 
