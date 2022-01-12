@@ -11,8 +11,7 @@ const apiRequestForGames = async (name) => {
       'Client-ID': process.env.CLIENT_ID,
       'Authorization': 'Bearer ' + process.env.AUTH,
     },
-    data: `search "${name}"; fields name,cover.image_id,platforms.name,release_dates.date,game_modes,summary;
-  limit 5;`
+    data: `search "${name}"; fields name,cover.image_id,platforms.name,release_dates.date,game_modes,summary; limit 50;`
   });
   return response.data;
 }
