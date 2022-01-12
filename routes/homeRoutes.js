@@ -19,7 +19,9 @@ router.get('/', async (req, res) => {
           attributes: [
             'id',
             'cover_id',
-            'name'
+            'name',
+            'summary',
+            'release_date'
           ]
         }
       ],
@@ -73,7 +75,9 @@ router.get('/user/:id', async (req, res) => {
               attributes: [
                 'id',
                 'name',
-                'cover_id'
+                'cover_id',
+                'summary',
+                'release_date'
               ]
             }
           ],
