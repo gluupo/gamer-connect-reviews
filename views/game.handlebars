@@ -2,11 +2,10 @@
   <div class="mx-auto my-auto">
     <div class="container" id="gameReviewContainer">
       <div class="card mb-2" id="gameReviewCard">
-        {{log user_id}}
-        {{log game.id}}
         <a href="/game/id/{{game.id}}"><img src="
     https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover_id}}.jpg" class="gameImage"></a>
         <div>
+          <h1>{{game.name}}</h1>
           {{game.summary}}
           <br>
           {{format_date game.release_date}}
