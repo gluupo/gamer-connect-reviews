@@ -11,6 +11,7 @@
           {{game.release_date}}
         </div>
       </div>
+      {{#if loggedIn}}
       <div class="card mb-2">
         <form id="review">
           <h3>Write a Review</h3>
@@ -31,6 +32,7 @@
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
+      {{/if}}
       {{#each game.reviews}}
       <div class="card">
         <a href="/user/{{user.id}}">

@@ -12,7 +12,9 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/');
+      if (document.location.pathname === ('/signup')) {
+        document.location.replace('/');
+      } else document.location.reload();
     } else {
       alert('Failed to log in.');
     }
