@@ -6,11 +6,21 @@
       {{log user.reviews.[0].game}}
       <h1>{{user.username}}</h1>
       {{#each user.reviews}}
-      <div class="card" id="userReviewCard">
-        <a href="/game/id/{{game.id}}"><img src="
+      <div class="card mb-0 d-flex flex-row" id="gameReviewCard">
+        <a href="/game/id/{{game.id}}"><img class="col-9 pr-3 gameImage" src="
     https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover_id}}.jpg" class="gameImage"></a>
-        <h2>{{game.name}}</h2>
-        <p>{{review}}</p>
+        <div class="col-sm-6 col-md-9">
+          <h2>{{game.name}}</h2>
+          {{game.summary}}
+          <br>
+          {{format_date game.release_date}}
+        </div>
+      </div>
+      <div class="card" id="userReviewCard">
+        <div class="d-flex justify-content-between">
+          <p class="col-md-10 col-lg-11 mt-3">"{{review}}"</p>
+          <h4 class="col-md-2 col-lg-1">{{rating}}/5 ★</h4>
+        </div>
       </div>
       {{/each}}
     </div>
