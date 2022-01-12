@@ -9,7 +9,7 @@
         <div>
           {{game.summary}}
           <br>
-          {{format_date game.release_date}}
+          {{format_date game.release_date}}          
         </div>
       </div>
       {{#if loggedIn}}
@@ -37,7 +37,11 @@
       </div>
       {{/if}}
       {{#each game.reviews}}
+<<<<<<< HEAD
       <div class="card" id="userReviewCard">
+=======
+      <div class="card mb-1">
+>>>>>>> abcef1432b9eb9bfcefd127a399d22dc0806e513
         <a href="/user/{{user.id}}">
           <h3>{{user.username}}</h3>
         </a>
