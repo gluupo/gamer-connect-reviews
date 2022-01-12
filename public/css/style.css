@@ -55,8 +55,6 @@ img {
     font-size: 42px;
     color: whitesmoke;
     text-decoration: none;
-    padding-right: 30px;
-    padding-left: 30px;
 }
 
 #logo:hover {
@@ -96,6 +94,7 @@ img {
     box-shadow: 0px 1px 10px 3px;
     margin-top: 30px;
     margin-bottom: 30px;
+    width: auto;
 }
 
 .navbar-nav {
@@ -166,4 +165,49 @@ img {
 .rate>input:checked~label:hover~label,
 .rate>label:hover~input:checked~label {
     color: #c59b08;
+}
+
+@media screen and (max-width:756px) {
+    *, html {
+        font-size: 15px;
+    }
+    #logo {
+        font-size: 30px;
+    }
+    .container {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width:603px) {
+    *, html {
+        font-size: 10px;
+    }
+    #logo {
+        font-size: 25px;
+    }
+    .container {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    #search {
+        max-width: 50%;
+    }
+    .container {
+        width: 75%;
+    }
+    #searchbar {
+        padding-left: 70px;
+    }
+}
+
+@media screen and (max-width:430px) {
+    *, html {
+        font-size: 9px;
+    }
+    #logo {
+        font-size: 15px;
+    }
 }
