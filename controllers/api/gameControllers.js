@@ -18,18 +18,7 @@ const apiRequestForGames = async (name) => {
 
 const getAllGames = async (req, res) => {
   try {
-    // const response = await axios({
-    //   url: "https://api.igdb.com/v4/games",
-    //   method: 'POST',
-    //   headers: {
-    //     'Accept': 'application/json',
-    //     'Client-ID': process.env.CLIENT_ID,
-    //     'Authorization': 'Bearer ' + process.env.AUTH,
-    //   },
-    //   data: `search "zelda"; fields name,cover.image_id,platforms.name,release_dates.date,game_modes,summary;
-    // limit 5;`
-    // })
-    const response = await apiRequestForGames("zelda")
+    const response = await apiRequestForGames(req.body)
     return res.json(response.data)
   } catch (err) {
     console.log(err);
