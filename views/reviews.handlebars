@@ -1,8 +1,8 @@
 <div class="row w-100">
   <div class="mx-auto my-auto">
     <div class="container">
-      <div class="card">
-        {{#each reviews}}
+      {{#each reviews}}
+      <div class="card mb-2">
         {{log this}}
         <h1>{{game.name}}</h1>
         <a href="/game/id/{{game.id}}"><img
@@ -14,8 +14,8 @@
         <br>
         {{review}}
         </p>
-        {{/each}}
       </div>
+      {{/each}}
     </div>
   </div>
 </div>
