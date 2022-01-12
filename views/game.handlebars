@@ -1,11 +1,11 @@
 <div class="row w-100">
   <div class="mx-auto my-auto">
-    <div class="container" id="gameReviewCard">
-      <div class="card mb-2">
+    <div class="container" id="gameReviewContainer">
+      <div class="card mb-2" id="gameReviewCard">
         {{log user_id}}
         {{log game.id}}
         <a href="/game/id/{{game.id}}"><img src="
-    https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover_id}}.jpg"></a>
+    https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover_id}}.jpg" class="gameImage"></a>
         <div>
           {{game.summary}}
           <br>
@@ -13,7 +13,7 @@
         </div>
       </div>
       {{#if loggedIn}}
-      <div class="card mb-2">
+      <div class="card mb-2" id="writeReviewCard">
         <form id="review">
           <h3>Write a Review</h3>
           <div class="rate">
@@ -37,7 +37,7 @@
       </div>
       {{/if}}
       {{#each game.reviews}}
-      <div class="card">
+      <div class="card" id="userReviewCard">
         <a href="/user/{{user.id}}">
           <h3>{{user.username}}</h3>
         </a>

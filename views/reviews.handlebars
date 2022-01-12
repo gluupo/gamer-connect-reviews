@@ -1,13 +1,13 @@
 <div class="row w-100">
   <div class="mx-auto my-auto">
-    <div class="container">
+    <div class="container" id="reviewInputContainer">
       <h1 class="text-light">Latest Reviews</h1>
       {{#each reviews}}
-      <div class="card mb-2">
+      <div class="card mb-2" id="reviewInputCard">
         {{log this}}
         <h1>{{game.name}}</h1>
         <a href="/game/id/{{game.id}}"><img
-            src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover_id}}.jpg"></a>
+            src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover_id}}.jpg" class="gameImage"></a>
         <p>
         <h4>Review By:</h4><a href="/user/{{user.id}}">
           <h3>{{user.username}}</h3>

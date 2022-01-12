@@ -6,9 +6,9 @@
       {{log user.reviews.[0].game}}
       <h1>{{user.username}}</h1>
       {{#each user.reviews}}
-      <div class="card">
+      <div class="card" id="userReviewCard">
         <a href="/game/id/{{game.id}}"><img src="
-    https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover_id}}.jpg"></a>
+    https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover_id}}.jpg" class="gameImage"></a>
         <h2>{{game.name}}</h2>
         <p>{{review}}</p>
       </div>
