@@ -61,7 +61,7 @@ const apiRequestForGamebyID = async (data) => {
           'Client-ID': process.env.CLIENT_ID,
           'Authorization': 'Bearer ' + process.env.AUTH,
         },
-        data: `fields name,cover.image_id,platforms,release_dates.date,game_modes,summary; where id = ${data};`
+        data: `fields name,cover.image_id,platforms.id,release_dates.date,game_modes.id,summary; where id = ${data};`
       })
       console.log(response.data)
       await createGame(response.data[0])
@@ -73,6 +73,7 @@ const apiRequestForGamebyID = async (data) => {
             attributes: [
               'id',
               'review',
+              'rating'
             ],
             include: [
               {
@@ -91,7 +92,7 @@ const apiRequestForGamebyID = async (data) => {
     }
     return gameData.get({ plain: true })
   } catch (err) {
-    console.log(err);
+    // console.log(err);
   }
 }
 
@@ -129,7 +130,7 @@ const getGameById = async (req, res) => {
           'Client-ID': process.env.CLIENT_ID,
           'Authorization': 'Bearer ' + process.env.AUTH,
         },
-        data: `fields name,cover.image_id,platforms,release_dates.date,game_modes,summary; where id = ${req.params.id};`
+        data: `fields name,cover.image_id,platforms.id,release_dates.date,game_modes,summary; where id = ${req.params.id};`
       })
       console.log(response.data)
       await createGame(response.data[0])
@@ -157,6 +158,7 @@ const createGame = async (req, res) => {
     await dbGameData.setPlatforms(req.platforms);
     await dbGameData.setModes(req.game_modes);
     await dbGameData.save();
+    await dbGameData.reload();
   } catch (err) {
     console.log(err);
   }
