@@ -149,11 +149,12 @@ const createGame = async (req, res) => {
       id: req.id,
       name: req.name,
       cover_id: req.cover.image_id,
-      platform_id: req.platforms,
       release_date: req.release_dates[0].date,
-      mode_id: req.game_modes,
       summary: req.summary
     });
+    await dbGameData.setPlatforms(req.platforms);
+    await dbGameData.setModes(req.game_modes);
+    await dbGameData.save();
   } catch (err) {
     console.log(err);
   }
