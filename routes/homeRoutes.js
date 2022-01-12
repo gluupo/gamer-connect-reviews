@@ -40,7 +40,7 @@ router.get('/game/search/', async (req, res) => {
   console.log(req.query.q)
   try {
     const games = await apiRequestForGames(req.query.q)
-    res.render('search', { games })
+    res.render('search', { games, loggedIn: req.session.loggedIn, user_id: req.session.user_id })
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -92,7 +92,7 @@ router.get('/user/:id', async (req, res) => {
 
     })
     const user = userData.get({ plain: true });
-    res.render('user', { user })
+    res.render('user', { user, loggedIn: req.session.loggedIn, user_id: req.session.user_id })
   } catch (err) {
     res.status(500).json(err);
   }
