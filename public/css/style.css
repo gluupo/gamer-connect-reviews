@@ -66,12 +66,17 @@ h3 {
     display: inline-block;
 }
 
+#gameSearchCard {
+    margin-bottom: 20px;
+}
+
 #gameReviewContainer, #user, #searchbar {
     background-color: #333;
 }
 
 #userReviewCard.card {
     margin-top: 0px;
+    margin-bottom: 10px;
     position: inherit;
     background-color: rgb(222, 222, 222);
 }
@@ -136,7 +141,7 @@ h3 {
 .card {
     padding: 10px;
     box-shadow: 0px 3px 15px 3px;
-    margin: 20px;
+    /* margin: 20px; */
 }
 
 /* STAR RATING modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
@@ -181,7 +186,7 @@ h3 {
     border-radius: 5px;
 }
 
-#signInForm.card:hover, #writeReviewCard.card:hover, #gameReviewCard.card:hover {
+#signInForm.card:hover, #writeReviewCard.card:hover, #gameReviewCard.card:hover, #userReviewCard.card:hover {
     background-color: white;
     transform: none;
     cursor: auto;

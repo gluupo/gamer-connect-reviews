@@ -7,13 +7,13 @@
         <a href="/game/id/{{game.id}}"><img class="col-9 pr-3 gameImage" src="
     https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover_id}}.jpg" class="gameImage"></a>
         <div class="col-sm-6 col-md-9">
-          <h1>{{game.name}}</h1>
+          <h2>{{game.name}}</h2>
           {{game.summary}}
           <br>
           Release Date: {{format_date game.release_date}}
         </div>
       </div>
-      <div class="card mt-0 text-end" id="userReviewCard" style="border-radius: 0 0 5px 5px !important;">
+      <div class="card mt-0 mb-3 text-end" id="userReviewCard" style="border-radius: 0 0 5px 5px !important;">
         <div class="d-flex justify-content-between">
           <a class="col-md-10 col-lg-11" href="/user/{{user.id}}">
             <h3>{{user.username}}</h3>
