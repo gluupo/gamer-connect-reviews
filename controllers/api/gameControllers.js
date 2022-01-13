@@ -8,8 +8,10 @@ const apiRequestForGames = async (name) => {
   try {
     let response = await con.redisGet(name);
     if (response) {
+      console.log(`\n\n\n RESPONSE \n\n\n`, response)
       return JSON.parse(response)
     } else {
+      console.log(`THIS WOULD BE API\n\n\n`)
       response = await axios({
         url: "https://api.igdb.com/v4/games",
         method: 'POST',
