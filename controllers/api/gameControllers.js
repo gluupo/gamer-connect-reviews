@@ -23,7 +23,8 @@ const apiRequestForGames = async (name) => {
         },
         data: `search "${name}"; fields name,cover.image_id,platforms.name,release_dates.date,game_modes,summary; limit 50;`
       });
-      await this.client.setex(name, 86400, JSON.stringify(response.data))
+      await client.setEx(`${name}`, 86400, JSON.stringify(response.data))
+      return response.data
     }
   } catch (err) {
     console.log(err)
