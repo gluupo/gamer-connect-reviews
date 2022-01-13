@@ -4,7 +4,9 @@ require('dotenv').config();
 class Connection {
   constructor() {
     this.client = createClient({ url: process.env.REDIS_URL });
-    this.client.connect();
+    this.client.on('error', err => {
+      console.log('Error ' + err);
+    });
   }
 
   async redisGet(name) {
@@ -13,7 +15,7 @@ class Connection {
   }
 
   async redisSet(name, value) {
-    await this.client.set(name, value);
+    await this.client.setEx(name, 86400, value);
   }
 }
 

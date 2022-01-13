@@ -1,12 +1,19 @@
 const axios = require('axios')
 require('dotenv').config();
 const { Game, Review, User } = require('../../models')
-const con = require('../../config/redis')
+const { createClient } = require('redis');
+require('dotenv').config();
+
+
+
 
 
 const apiRequestForGames = async (name) => {
   try {
-    let response = await con.redisGet(name);
+    const client = createClient({ url: process.env.REDIS_URL })
+    client.on('error', (err) => console.log('Redis Client Error', err));
+    await client.connect();
+    let response = await client.get(`${name}`);
     if (response) {
       console.log(`\n\n\n RESPONSE \n\n\n`, response)
       return JSON.parse(response)
@@ -22,8 +29,7 @@ const apiRequestForGames = async (name) => {
         },
         data: `search "${name}"; fields name,cover.image_id,platforms.name,release_dates.date,game_modes,summary; limit 50;`
       });
-      await con.redisSet(name, JSON.stringify(response.data))
-      return response.data;
+      await this.client.setEx(name, 86400, JSON.stringify(response.data))
     }
   } catch (err) {
     console.log(err)
@@ -35,7 +41,7 @@ const apiRequestForGames = async (name) => {
 const getAllGames = async (req, res) => {
   try {
     const response = await apiRequestForGames(req.body)
-    return res.json(response.data)
+    return res.json(response.data || [])
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
