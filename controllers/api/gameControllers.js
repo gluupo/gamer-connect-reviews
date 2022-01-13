@@ -1,12 +1,7 @@
 const axios = require('axios')
-require('dotenv').config();
 const { Game, Review, User } = require('../../models')
 const { createClient } = require('redis');
 require('dotenv').config();
-
-
-
-
 
 const apiRequestForGames = async (name) => {
   try {
@@ -15,7 +10,6 @@ const apiRequestForGames = async (name) => {
     await client.connect();
     let response = await client.get(`${name}`);
     if (response) {
-      console.log(`\n\n\n RESPONSE \n\n\n`, response)
       return JSON.parse(response)
     } else {
       console.log(`THIS WOULD BE API\n\n\n`)
@@ -29,7 +23,7 @@ const apiRequestForGames = async (name) => {
         },
         data: `search "${name}"; fields name,cover.image_id,platforms.name,release_dates.date,game_modes,summary; limit 50;`
       });
-      await this.client.setEx(name, 86400, JSON.stringify(response.data))
+      await this.client.setex(name, 86400, JSON.stringify(response.data))
     }
   } catch (err) {
     console.log(err)
