@@ -1,10 +1,10 @@
 <div class="row w-100">
   <div class="mx-auto my-auto">
     <div class="container" id="gameReviewContainer">
-      <div class="card mb-2 d-flex flex-row" id="gameReviewCard">
-        <a href="/game/id/{{game.id}}"><img class="col-9 pr-3" src="
+      <div class="card mb-2 d-flex flex-row flex-wrap" id="gameReviewCard">
+        <a class="col-sm-12 col-md-3" href="/game/id/{{game.id}}"><img class="img-fluid" src="
     https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover_id}}.jpg" class="gameImage"></a>
-        <div class="col-sm-6 col-md-9">
+        <div class="col-sm-12 col-md-9" style="padding-left: 5px;">
           <h1>{{game.name}}</h1>
           {{game.summary}}
           <br>
