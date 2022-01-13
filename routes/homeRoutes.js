@@ -78,6 +78,13 @@ router.get('/user/:id', async (req, res) => {
                 'cover_id',
                 'summary',
                 'release_date'
+              ],
+            },
+            {
+              model: User,
+              attributes: [
+                'id',
+                'username'
               ]
             }
           ],
