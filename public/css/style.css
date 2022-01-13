@@ -43,9 +43,9 @@ h3 {
 
 #logo {
     font-family: 'Staatliches', cursive !important;
-    /* font-size: 50px auto; */
     color: whitesmoke;
     text-decoration: none;
+    margin-bottom: 0;
 }
 
 #infoWidget {
