@@ -9,9 +9,8 @@ const createReview = async (req, res) => {
       rating: req.body.rating,
       review: req.body.review,
     });
-
     req.session.save(() => {
-      req.session.loggedIn = true;
+      // req.session.loggedIn = true;
       res.status(200).json(dbReviewData);
     });
   } catch (err) {

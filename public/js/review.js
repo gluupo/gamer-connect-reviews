@@ -16,8 +16,10 @@ const reviewFormHandler = async (event) => {
     console.log(response)
     if (response.ok) {
       document.location.reload();
+      document.querySelector('#review-input-text').value = '';
+      rating = document.querySelector('input[name="rate"]:checked').removeAttribute('checked');
     } else {
-      alert('Failed to sign up.');
+      alert('Please Login');
     }
   }
 };
