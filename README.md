@@ -21,5 +21,5 @@ A full demonstration of funcationality can be found [here](https://watch.screenc
 
 ``` Node.js```, ```Express.js```, ```Handlebars.js```, ```RESTful API```, ```MySQL```, ```Sequelize ORM```, ```Redis```, ```Heroku```.
 
-## deployed
+## Deployed
 Click [this](https://gamer-connect-123789.herokuapp.com/) to visit the deployed application.
