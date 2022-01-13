@@ -136,7 +136,8 @@ h3 {
 
 .rate {
     float: left;
-    height: 46px;
+    height: 40px;
+    margin: 0;
     padding: 0 10px;
 }
 
@@ -151,7 +152,8 @@ h3 {
     overflow: hidden;
     white-space: nowrap;
     cursor: pointer;
-    font-size: 30px;
+    font-size: 35px;
+    letter-spacing: 2px;
     color: #ccc;
 }
 
@@ -228,6 +230,7 @@ h3 {
     #logo {
         font-size: 15px;
     }
+
     .container {
         width: 75%;
     }
