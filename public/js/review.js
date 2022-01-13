@@ -8,7 +8,8 @@ const reviewFormHandler = async (event) => {
 
   const checkRating = () => {
     if (rating > 5) return 5;
-    else if (rating < 1) return 1
+    else if (rating < 1) return 1;
+    else return rating;
   }
 
   if (rating && review) {
