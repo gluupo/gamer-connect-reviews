@@ -27,6 +27,7 @@ const apiRequestForGames = async (name) => {
     }
   } catch (err) {
     console.log(err)
+    return err
   }
 }
 
