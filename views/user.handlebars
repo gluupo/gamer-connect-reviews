@@ -2,8 +2,8 @@
   <h1>{{user.username}}</h1>
   {{#each user.reviews}}
   <div class="card d-flex flex-row flex-wrap" id="gameReviewCard">
-    <a class="col-sm-12 col-md-3 text-center" href="/game/id/{{game.id}}"><img class="img-fluid" src="
-    https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover_id}}.jpg" class="gameImage"></a>
+    <a class="col-sm-12 col-md-2 text-center" href="/game/id/{{game.id}}"><img class="img-fluid gameImage" src="
+    https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover_id}}.jpg"></a>
     <div class="col-sm-12 col-md-9" style="padding-left: 5px;">
       <h2>{{game.name}}</h2>
       {{game.summary}}
