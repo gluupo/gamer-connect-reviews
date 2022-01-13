@@ -235,6 +235,6 @@ h3 {
     }
 
     .container {
-        width: 75%;
+        padding: 25px 15px;
     }
 }
