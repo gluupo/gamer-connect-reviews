@@ -1,28 +1,24 @@
-<div class="row w-100">
-  <div class="mx-auto my-auto">
-    <div class="container" id="reviewInputContainer">
-      <h1 class="text-light">Latest Reviews</h1>
-      {{#each reviews}}
-      <div class="card mb-2 d-flex flex-row flex-wrap" id="gameReviewCard">
-        <a class="col-sm-12 col-md-3" href="/game/id/{{game.id}}"><img class="img-fluid" src="
+<div class="container" id="reviewInputContainer">
+  <h1 class="text-light">Latest Reviews</h1>
+  {{#each reviews}}
+  <div class="card mb-2 d-flex flex-row flex-wrap" id="gameReviewCard">
+    <a class="col-sm-12 col-md-3 text-center" href="/game/id/{{game.id}}"><img class="img-fluid" src="
     https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover_id}}.jpg" class="gameImage"></a>
-        <div class="col-sm-12 col-md-9" style="padding-left: 5px;">
-          <h1>{{game.name}}</h1>
-          {{game.summary}}
-          <br>
-          Release Date: {{format_date game.release_date}}
-        </div>
-      </div>
-      <div class="card mt-0 mb-3 text-end" id="userReviewCard" style="border-radius: 0 0 5px 5px !important;">
-        <div class="d-flex justify-content-between">
-          <a class="col-md-10 col-lg-11" href="/user/{{user.id}}">
-            <h3>{{user.username}}</h3>
-          </a>
-          <h4 class="col-md-2 col-lg-1">{{rating}}/5 ★</h4>
-        </div>
-        <p class="mt-3">"{{review}}"</p>
-      </div>
-      {{/each}}
+    <div class="col-sm-12 col-md-9" style="padding-left: 5px;">
+      <h1>{{game.name}}</h1>
+      {{game.summary}}
+      <br>
+      Release Date: {{format_date game.release_date}}
     </div>
   </div>
+  <div class="card mt-0 mb-3 text-end" id="userReviewCard" style="border-radius: 0 0 5px 5px !important;">
+    <div class="d-flex justify-content-between">
+      <a class="col-md-10 col-lg-11" href="/user/{{user.id}}">
+        <h3>{{user.username}}</h3>
+      </a>
+      <h4 class="col-md-2 col-lg-1">{{rating}}/5 ★</h4>
+    </div>
+    <p class="mt-3">"{{review}}"</p>
+  </div>
+  {{/each}}
 </div>

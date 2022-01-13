@@ -1,53 +1,49 @@
-<div class="row w-100">
-  <div class="mx-auto my-auto">
-    <div class="container" id="gameReviewContainer">
-      <div class="card mb-2 d-flex flex-row flex-wrap" id="gameReviewCard">
-        <a class="col-sm-12 col-md-3" href="/game/id/{{game.id}}"><img class="img-fluid" src="
+<div class="container" id="gameReviewContainer">
+  <div class="card mb-2 d-flex flex-row flex-wrap" id="gameReviewCard">
+    <a class="col-sm-12 col-md-3 text-center" href="/game/id/{{game.id}}"><img class="img-fluid" src="
     https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover_id}}.jpg" class="gameImage"></a>
-        <div class="col-sm-12 col-md-9" style="padding-left: 5px;">
-          <h1>{{game.name}}</h1>
-          {{game.summary}}
-          <br>
-          Release Date: {{format_date game.release_date}}
-        </div>
-      </div>
-      {{#if loggedIn}}
-      <div class="card mb-2" id="writeReviewCard">
-        <form id="review">
-          <h3>Write a Review</h3>
-          <div class="rate">
-            <input type="radio" id="star5" name="rate" value="5" />
-            <label for="star5" title="text">5 stars</label>
-            <input type="radio" id="star4" name="rate" value="4" />
-            <label for="star4" title="text">4 stars</label>
-            <input type="radio" id="star3" name="rate" value="3" />
-            <label for="star3" title="text">3 stars</label>
-            <input type="radio" id="star2" name="rate" value="2" />
-            <label for="star2" title="text">2 stars</label>
-            <input type="radio" id="star1" name="rate" value="1" />
-            <label for="star1" title="text">1 star</label>
-          </div>
-          <textarea class="form-control mb-3" rows="5" id="review-input-text" name="text"
-            placeholder="Write your Review here" maxlength="500"></textarea>
-          <button type="submit" class="btn btn-primary">Submit</button>
-          <input type="hidden" id="user_id" name="user_id" value="{{user_id}}">
-          <input type="hidden" id="game_id" name="game_id" value="{{game.id}}">
-        </form>
-      </div>
-      {{/if}}
-      {{#each game.reviews}}
-      {{log this}}
-      <div class="card" id="userReviewCard">
-        <div class="d-flex justify-content-between">
-          <a class="col-md-10 col-lg-11" href="/user/{{user.id}}">
-            <h3>{{user.username}}</h3>
-          </a>
-          <h4 class="col-md-2 col-lg-1">{{rating}}/5 ★</h4>
-        </div>
-        <p class="mt-3">"{{review}}"</p>
-      </div>
-      {{/each}}
+    <div class="col-sm-12 col-md-9" style="padding-left: 5px;">
+      <h1>{{game.name}}</h1>
+      {{game.summary}}
+      <br>
+      Release Date: {{format_date game.release_date}}
     </div>
   </div>
+  {{#if loggedIn}}
+  <div class="card mb-2" id="writeReviewCard">
+    <form id="review">
+      <h3>Write a Review</h3>
+      <div class="rate">
+        <input type="radio" id="star5" name="rate" value="5" />
+        <label for="star5" title="text">5 stars</label>
+        <input type="radio" id="star4" name="rate" value="4" />
+        <label for="star4" title="text">4 stars</label>
+        <input type="radio" id="star3" name="rate" value="3" />
+        <label for="star3" title="text">3 stars</label>
+        <input type="radio" id="star2" name="rate" value="2" />
+        <label for="star2" title="text">2 stars</label>
+        <input type="radio" id="star1" name="rate" value="1" />
+        <label for="star1" title="text">1 star</label>
+      </div>
+      <textarea class="form-control mb-3" rows="5" id="review-input-text" name="text"
+        placeholder="Write your Review here" maxlength="500"></textarea>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <input type="hidden" id="user_id" name="user_id" value="{{user_id}}">
+      <input type="hidden" id="game_id" name="game_id" value="{{game.id}}">
+    </form>
+  </div>
+  {{/if}}
+  {{#each game.reviews}}
+  {{log this}}
+  <div class="card" id="userReviewCard">
+    <div class="d-flex justify-content-between">
+      <a class="col-md-10 col-lg-11" href="/user/{{user.id}}">
+        <h3>{{user.username}}</h3>
+      </a>
+      <h4 class="col-md-2 col-lg-1">{{rating}}/5 ★</h4>
+    </div>
+    <p class="mt-3">"{{review}}"</p>
+  </div>
+  {{/each}}
 </div>
 <script src="/js/review.js"></script>
