@@ -5,22 +5,26 @@ const con = require('../../config/redis')
 
 
 const apiRequestForGames = async (name) => {
-  let response = await con.redisGet(name);
-  if (response) {
-    return JSON.parse(response)
-  } else {
-    response = await axios({
-      url: "https://api.igdb.com/v4/games",
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Client-ID': process.env.CLIENT_ID,
-        'Authorization': 'Bearer ' + process.env.AUTH,
-      },
-      data: `search "${name}"; fields name,cover.image_id,platforms.name,release_dates.date,game_modes,summary; limit 50;`
-    });
-    await con.redisSet(name, JSON.stringify(response.data))
-    return response.data;
+  try {
+    let response = await con.redisGet(name);
+    if (response) {
+      return JSON.parse(response)
+    } else {
+      response = await axios({
+        url: "https://api.igdb.com/v4/games",
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Client-ID': process.env.CLIENT_ID,
+          'Authorization': 'Bearer ' + process.env.AUTH,
+        },
+        data: `search "${name}"; fields name,cover.image_id,platforms.name,release_dates.date,game_modes,summary; limit 50;`
+      });
+      await con.redisSet(name, JSON.stringify(response.data))
+      return response.data;
+    }
+  } catch (err) {
+    console.log(err)
   }
 }
 
