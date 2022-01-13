@@ -1,15 +1,15 @@
 <div class="container" id="gameSearchContainer">
   {{#each games}}
-  <a href="/game/id/{{id}}">
-    <div class="card d-flex flex-row" id="gameSearchCard">
-      <div class="col-2"><img src="https://images.igdb.com/igdb/image/upload/t_cover_med/{{cover.image_id}}.jpg"
-          class="gameImage">
-      </div>
-      <div class="col-10">
-        <h3>{{name}}</h3>
-        <p>{{summary}}</p>
-      </div>
+  {{log this.release_dates}}
+  <div class="card mb-2 d-flex flex-row" id="gameReviewCard">
+    <a href="/game/id/{{id}}"><img class="col-9 pr-3" src="
+    https://images.igdb.com/igdb/image/upload/t_cover_big/{{cover.image_id}}.jpg" class="gameImage"></a>
+    <div class="col-sm-6 col-md-9">
+      <h1>{{name}}</h1>
+      {{summary}}
+      <br>
+      Release Date: {{format_date release_dates.[0].date}}
     </div>
-  </a>
+  </div>
   {{/each}}
 </div>
