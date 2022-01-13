@@ -3,7 +3,7 @@ require('dotenv').config();
 
 class Connection {
   constructor() {
-    this.client = createClient(process.env.REDIS_URL);
+    this.client = createClient({ url: process.env.REDIS_URL });
     this.client.connect();
   }
 
