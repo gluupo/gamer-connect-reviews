@@ -78,7 +78,7 @@ h3 {
 .container {
     border-radius: 15px;
     background-image: linear-gradient(to bottom, rgb(33, 37, 41), rgb(95, 95, 95));
-    padding: 50px;
+    padding: 20px;
     margin-top: 30px;
     margin-bottom: 30px;
     /* width: 50%; */
@@ -236,5 +236,9 @@ h3 {
 
     .container {
         width: 75%;
+        padding: 5px;
+    }
+    .card {
+        padding: 5px;
     }
 }
