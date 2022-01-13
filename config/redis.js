@@ -1,8 +1,9 @@
 const { createClient } = require('redis');
+require('dotenv').config();
 
 class Connection {
   constructor() {
-    this.client = createClient();
+    this.client = createClient(process.env.REDIS_URL || 6379);
     this.client.connect();
   }
 
