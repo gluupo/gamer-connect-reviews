@@ -6,6 +6,9 @@
 
 a, p {
     text-decoration: none;
+}
+
+p {
     margin: 0;
 }
 
