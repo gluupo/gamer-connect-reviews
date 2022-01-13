@@ -1,14 +1,5 @@
 <div class="container" id="gameReviewContainer">
-  <div class="card mb-2 d-flex flex-row flex-wrap justify-content-around" id="gameReviewCard">
-    <a class="col-sm-12 col-md-2 text-center" href="/game/id/{{game.id}}"><img class="img-fluid gameImage" src="
-    https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover_id}}.jpg"></a>
-    <div class="col-sm-12 col-md-9" style="padding-left: 5px;">
-      <h1>{{game.name}}</h1>
-      {{game.summary}}
-      <br>
-      Release Date: {{format_date game.release_date}}
-    </div>
-  </div>
+  {{> game game}}
   {{#if loggedIn}}
   <div class="card mb-2" id="writeReviewCard">
     <form id="review">
@@ -34,16 +25,7 @@
   </div>
   {{/if}}
   {{#each game.reviews}}
-  {{log this}}
-  <div class="card" id="userReviewCard">
-    <div class="d-flex justify-content-between">
-      <a class="col-md-10 col-lg-11" href="/user/{{user.id}}">
-        <h3>{{user.username}}</h3>
-      </a>
-      <h4 class="col-md-2 col-lg-1">{{rating}}/5 ★</h4>
-    </div>
-    <p class="mt-3">"{{review}}"</p>
-  </div>
+  {{>reviewCard this}}
   {{/each}}
 </div>
 <script src="/js/review.js"></script>

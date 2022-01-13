@@ -1,24 +1,7 @@
 <div class="container" id="reviewInputContainer">
   <h1 class="text-light">Latest Reviews</h1>
   {{#each reviews}}
-  <div class="card d-flex flex-row flex-wrap justify-content-around" id="gameReviewCard">
-    <a class="col-sm-12 col-md-2 text-center" href="/game/id/{{game.id}}"><img class="img-fluid gameImage" src="
-    https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover_id}}.jpg"></a>
-    <div class="col-sm-12 col-md-9" style="padding-left: 5px;">
-      <h2>{{game.name}}</h2>
-      {{game.summary}}
-      <br>
-      Release Date: {{format_date game.release_date}}
-    </div>
-  </div>
-  <div class="card mt-0 mb-3 text-end" id="userReviewCard" style="border-radius: 0 0 5px 5px !important;">
-    <div class="d-flex justify-content-between">
-      <a class="col-md-10 col-lg-11" href="/user/{{user.id}}">
-        <h3>{{user.username}}</h3>
-      </a>
-      <h4 class="col-md-2 col-lg-1">{{rating}}/5 ★</h4>
-    </div>
-    <p class="mt-3">"{{review}}"</p>
-  </div>
+  {{>game game}}
+  {{>reviewCard this}}
   {{/each}}
 </div>
