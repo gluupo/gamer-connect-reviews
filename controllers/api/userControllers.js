@@ -1,11 +1,5 @@
 const { User } = require('../../models')
 
-const getAllUsers = async () => {
-
-}
-const getUserById = async () => {
-
-}
 const createUser = async (req, res) => {
   try {
     console.log(req.body)
@@ -25,12 +19,6 @@ const createUser = async (req, res) => {
     console.log(err);
     res.status(500).json(err);
   }
-}
-const updateUser = async () => {
-
-}
-const deleteUser = async () => {
-
 }
 
 const loginUser = async (req, res) => {
@@ -82,4 +70,4 @@ const logoutUser = async (req, res) => {
 }
 
 
-module.exports = { getAllUsers, getUserById, createUser, updateUser, deleteUser, loginUser, logoutUser }
+module.exports = { createUser, loginUser, logoutUser }

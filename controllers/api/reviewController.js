@@ -1,13 +1,5 @@
 const { Review } = require('../../models')
 
-const getAllReviews = async () => {
-
-}
-
-const getReviewById = async () => {
-
-}
-
 const createReview = async (req, res) => {
   try {
     console.log(req.body)
@@ -28,12 +20,4 @@ const createReview = async (req, res) => {
   }
 }
 
-const updateReview = async () => {
-
-}
-
-const deleteReview = async () => {
-
-}
-
-module.exports = { getAllReviews, getReviewById, createReview, updateReview, deleteReview }
+module.exports = { createReview }

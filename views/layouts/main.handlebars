@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-  <script src="jquery-3.5.1.min.js"></script>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,44 +36,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
-  <script>// source https://codepen.io/RenanB/pen/GZeBNg
-
-    $('.img-parallax').each(function () {
-      var img = $(this);
-      var imgParent = $(this).parent();
-      function parallaxImg() {
-        var speed = img.data('speed');
-        var imgY = imgParent.offset().top;
-        var winY = $(this).scrollTop();
-        var winH = $(this).height();
-        var parentH = imgParent.innerHeight();
-
-
-        // The next pixel to show on screen      
-        var winBottom = winY + winH;
-
-        // If block is shown on screen
-        if (winBottom > imgY && winY < imgY + parentH) {
-          // Number of pixels shown after block appear
-          var imgBottom = ((winBottom - imgY) * speed);
-          // Max number of pixels until block disappear
-          var imgTop = winH + parentH;
-          // Porcentage between start showing until disappearing
-          var imgPercent = ((imgBottom / imgTop) * 100) + (50 - (speed * 50));
-        }
-        img.css({
-          top: imgPercent + '%',
-          transform: 'translate(-50%, -' + imgPercent + '%)'
-        });
-      }
-      $(document).on({
-        scroll: function () {
-          parallaxImg();
-        }, ready: function () {
-          parallaxImg();
-        }
-      });
-    });</script>
+  <script src="/js/parallax.js"></script>
 </body>
 
 </html>

@@ -2,14 +2,6 @@
   <h1>{{user.username}}</h1>
   {{#each user.reviews}}
   {{>game game}}
-  <div class="card mt-0 mb-3 text-end" id="userReviewCard" style="border-radius: 0 0 5px 5px !important;">
-    <div class="d-flex justify-content-between">
-      <a class="col-md-10 col-lg-11" href="/user/{{../user.id}}">
-        <h3>{{../user.username}}</h3>
-      </a>
-      <h4 class="col-md-2 col-lg-1">{{rating}}/5 ★</h4>
-    </div>
-    <p class="mt-3">"{{review}}"</p>
-  </div>
+  {{>reviewCard this}}
   {{/each}}
 </div>

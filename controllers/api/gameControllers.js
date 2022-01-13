@@ -173,14 +173,7 @@ const createGame = async (req, res) => {
   }
 }
 
-const updateGame = async () => {
-
-}
-const deleteGame = async () => {
-
-}
 
 
-module.exports = { getAllGames, getGameById, createGame, updateGame, deleteGame, apiRequestForGames, apiRequestForGamebyID }
 
-// ,summary,platforms.abbreviation,game_modes.name,release_dates.date; sort release_dates.date desc;
+module.exports = { getAllGames, getGameById, createGame, apiRequestForGames, apiRequestForGamebyID }
