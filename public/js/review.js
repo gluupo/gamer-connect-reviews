@@ -6,7 +6,6 @@ const reviewFormHandler = async (event) => {
   const userId = document.querySelector('#user_id').value;
   const gameId = document.querySelector('#game_id').value;
 
-
   if (rating && review) {
     const response = await fetch('/api/reviews', {
       method: 'POST',
